@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    String Candies(int[] arr , int size)
+    {
+        Map<Integer ,Integer>hashmap = new HashMap<>();
+        for(int value : arr)
+        {
+            hashmap.put(value,hashmap.getOrDefault(value,0)+1);
+        }
+        for(int count : hashmap.values())
+        {
+            if(count>2)
+            return "NO";
+        }
+        return "YES";
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+    Codechef obj =new Codechef();
+    Scanner sc= new Scanner(System.in);
+    int t=sc.nextInt();
+    for(int i=0;i<t;i++)
+    {
+        int  n= sc.nextInt();
+        int[] arr= new int[n*2];
+        for(int j=0;j<arr.length;j++)
+        {
+            arr[j]=sc.nextInt();
+        }
+        System.out.println(obj.Candies(arr,n*2));
+    }
+	}
+}
