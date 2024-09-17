@@ -1,0 +1,81 @@
+Time Complexity : O(N)
+Space Complexity : O(N)
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    String EncodingMessage(int n , String s)
+    {
+        char[] chararray = s.toCharArray();
+        for(int i=0;i<n-1;i+=2)
+        {
+            char temp=chararray[i];
+            chararray[i]=chararray[i+1];
+            chararray[i+1]=temp;
+        }
+        for(int j=0;j<n;j++)
+        {
+            
+        
+       chararray[j]=(char) ('a'+('z'-chararray[j]));
+    }
+        return new String(chararray);
+    }
+    public static void main(String[] args)
+    {
+	Codechef obj=new Codechef();
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	for(int i=0;i<t;i++)
+	{
+	    int n=sc.nextInt();
+	    String s=sc.next();
+	    System.out.println(obj.EncodingMessage(n,s));
+	}
+
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Inorder to Reduce space complexity  use string builder class : O(1)
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    String EncodingMessage(int n , String s)
+    {
+        StringBuilder sb=new StringBuilder(s);
+        for (int i = 0; i < n - 1; i += 2) 
+       {
+        char temp = sb.charAt(i);
+        sb.setCharAt(i, sb.charAt(i + 1));
+                sb.setCharAt(i + 1, temp);
+        }
+      for (int i = 0; i < n; i++)
+      {
+         char c = sb.charAt(i);
+         sb.setCharAt(i, (char) ('a' + ('z' - c)));
+      }
+        return sb.toString();
+    }
+    public static void main(String[] args)
+    {
+	Codechef obj=new Codechef();
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	for(int i=0;i<t;i++)
+	{
+	    int n=sc.nextInt();
+	    String s=sc.next();
+	    System.out.println(obj.EncodingMessage(n,s));
+	}
+
+	}
+}
+
+
