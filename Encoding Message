@@ -17,9 +17,7 @@ class Codechef
             chararray[i+1]=temp;
         }
         for(int j=0;j<n;j++)
-        {
-            
-        
+        {        
        chararray[j]=(char) ('a'+('z'-chararray[j]));
     }
         return new String(chararray);
